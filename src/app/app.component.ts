@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './product.model'
 
 @Component({
   selector: 'app-root',
@@ -21,9 +22,9 @@ export class AppComponent {
     'Tetis'
   ]
 
-  products = [
+  products:Product[] = [
     {
-      name: 'EL mejor juguete',
+      name: 'El mejor juguete',
       price: 565,
       image: './assets/images/toy.webp',
       category: 'all',

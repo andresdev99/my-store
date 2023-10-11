@@ -1,4 +1,29 @@
 
+<h1>ngSwitch</h1>
+<input type="text" required [(ngModel)]="person.name" />
+<div [ngSwitch]="person.name">
+  <p *ngSwitchCase="person.name == 'Papel' || 'Andres'">{{ person.name }} and Papa</p>
+  <p *ngSwitchCase="'Tatiana'">{{ person.name }}</p>
+  <p *ngSwitchCase="'Natilla'">{{ person.name }}</p>
+  <p *ngSwitchDefault>Not match</p>
+</div>
+<!-- <p *ngIf="person.name === 'Andres';then thenMyBlock else otherElseMyBlock ">Hello</p>
+<ng-template #thenMyBlock>
+  <p>Hello {{ person.name }}</p>
+</ng-template>
+<ng-template #otherElseMyBlock>
+  <p>Dear {{ person.name}} you're not Andres</p>
+</ng-template> -->
+
+
+<h1>*ngFor Objs</h1>
+<div>
+  <div *ngFor="let product of products">
+    <img width="250" [src]="product.image" alt="">
+    <h2>{{ product.price }}</h2>
+    <p>{{ product.name }}</p>
+  </div>
+</div>
 <h1>*ngFor</h1>
 <ng-container>
   <input type="text" required [(ngModel)]="newName" />
@@ -17,7 +42,7 @@
 <hr>
 <h1>*ngIf</h1>
 <input type="text" required [(ngModel)]="person.name" />
-<p *ngIf="person.name === 'Andres';then thenMyBlock else otherElseMyBlock ">pene</p>
+<p *ngIf="person.name === 'Andres';then thenMyBlock else otherElseMyBlock ">Hello</p>
 <ng-template #thenMyBlock>
   <p>Hello {{ person.name }}</p>
 </ng-template>
@@ -55,8 +80,8 @@
 <img width="100px" [src]="person.avatar" alt="imagen">
 
 <hr>
-<h1>Tati Y Peny x 100PRE</h1>
-<h2>{{ 'Peny Ama a teti'}}</h2>
-<p>69+ 69 = {{ 69+ 69}}</p>
+<h1>Hello Andres</h1>
+<h2>{{ 'Hello hello Bye'}}</h2>
+<p>69 + 69 = {{ 69+ 69}}</p>
 <p>I'm {{ person.name}} and I'm {{ person.age }} years old</p>
 <img [src]="person.avatar" alt="imagen">
