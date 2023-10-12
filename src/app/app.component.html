@@ -1,4 +1,55 @@
 
+<!-- ngClass & NgStyle  -->
+
+<h1>NgClass & NgStyle</h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
+<hr class="line-error"
+[ngClass]="{
+  valid: nameInput4.valid,
+  invalid : nameInput4.invalid
+}">
+<p class="message-error" [class.invalid]="nameInput4.invalid">
+  The field is required
+</p>
+<div class="products--grid">
+  <div>
+    <input type="number" [(ngModel)]="box.width" />
+    <input type="number" [(ngModel)]="box.height" />
+    <input type="color" [(ngModel)]="box.background" />
+  </div>
+  <div>
+    <div [ngStyle]="{
+      'width.px': box.width,
+      'height.px': box.height,
+      'background': box.background,
+      'display': 'block'
+    }"></div>
+  </div>
+</div>
+
+<!-- Class & Styles  -->
+
+<hr>
+<h1>Class And Styles</h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
+<p class="message-error" [class.invalid]="nameInput2.invalid">
+  The field is required
+</p>
+<label>Nombre</label>
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
+<p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Text</p>
+<div class="img-container">
+  <div>
+    <input type="text" [(ngModel)]="widthImg" />
+  </div>
+  <div>
+    <img [style.width.px]="widthImg" [src]="person.avatar" alt="imagen">
+  </div>
+</div>
+
+<!-- ngSwitch  -->
+
+<hr>
 <h1>ngSwitch</h1>
 <input type="text" required [(ngModel)]="person.name" />
 <div [ngSwitch]="person.name">
@@ -7,23 +58,22 @@
   <p *ngSwitchCase="'Natilla'">{{ person.name }}</p>
   <p *ngSwitchDefault>Not match</p>
 </div>
-<!-- <p *ngIf="person.name === 'Andres';then thenMyBlock else otherElseMyBlock ">Hello</p>
-<ng-template #thenMyBlock>
-  <p>Hello {{ person.name }}</p>
-</ng-template>
-<ng-template #otherElseMyBlock>
-  <p>Dear {{ person.name}} you're not Andres</p>
-</ng-template> -->
 
+<!-- *ngFor In Objects  -->
 
+<hr>
 <h1>*ngFor Objs</h1>
-<div>
-  <div *ngFor="let product of products">
-    <img width="250" [src]="product.image" alt="">
+<div class="products--grid">
+  <div *ngFor="let product of products" class="product">
+    <img [src]="product.image" alt="">
     <h2>{{ product.price }}</h2>
     <p>{{ product.name }}</p>
   </div>
 </div>
+
+<!-- *ngFor  -->
+
+<hr>
 <h1>*ngFor</h1>
 <ng-container>
   <input type="text" required [(ngModel)]="newName" />
@@ -38,6 +88,7 @@
     </ul>
 </ng-container>
 
+<!-- *ngIf  -->
 
 <hr>
 <h1>*ngIf</h1>
@@ -50,6 +101,7 @@
   <p>Dear {{ person.name}} you're not Andres</p>
 </ng-template>
 
+<!-- ngModel  -->
 <hr>
 <h1>ngModel</h1>
 <p>Name: {{ person.name }}</p>
@@ -59,6 +111,7 @@
 <input type="number" max="24" min="10" required #ageInput="ngModel" [(ngModel)]="person.age" />
 <p>Valid : {{ ageInput.valid }}</p>
 
+<!-- EVENTS (CLICK, CHANGE...)  -->
 <hr>
 <h1>Events</h1>
 <button [disabled]="btnDisabled">Send</button>
@@ -72,6 +125,8 @@
 </div>
 <input type="text" [value]="person.name" (keyup)="changeName($event)">
 
+<!-- PROPERTIES  -->
+
 <hr>
 <h1>Properties</h1>
 <button [disabled]="btnDisabled">Send</button>
@@ -79,9 +134,10 @@
 <progress max="100" [value]="person.age"></progress>
 <img width="100px" [src]="person.avatar" alt="imagen">
 
+<!-- BEGINNING  -->
 <hr>
 <h1>Hello Andres</h1>
 <h2>{{ 'Hello hello Bye'}}</h2>
 <p>69 + 69 = {{ 69+ 69}}</p>
 <p>I'm {{ person.name}} and I'm {{ person.age }} years old</p>
-<img [src]="person.avatar" alt="imagen">
+<img width="200" [src]="person.avatar" alt="imagen">

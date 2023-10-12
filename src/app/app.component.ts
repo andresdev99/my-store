@@ -8,6 +8,7 @@ import { Product } from './product.model'
 })
 
 export class AppComponent {
+  widthImg = 10;
   btnDisabled = true;
 
   person = {
@@ -21,6 +22,12 @@ export class AppComponent {
     'Tatiana',
     'Tetis'
   ]
+
+  box = {
+    width: 100,
+    height: 100,
+    background: 'red'
+  }
 
   products:Product[] = [
     {
@@ -37,7 +44,7 @@ export class AppComponent {
     {
       name: 'Colleción de albumnes',
       price: 34,
-      image: './assets/images/album.jpg'
+      image: './assets/images/album.webp'
     },
     {
       name: 'Mis libros',
@@ -47,13 +54,14 @@ export class AppComponent {
     {
       name: 'Casa para perro',
       price: 34,
-      image: './assets/images/house.jpg'
+      image: './assets/images/house.png'
     },
     {
       name: 'Gafas',
       price: 3434,
       image: './assets/images/glasses.png'
-    }
+    },
+
   ]
   newName = '';
 
